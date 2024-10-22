@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkandiCandi</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(205, 206, 207);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            height: 110px;
+            width: 100%;
+            background-color: rgba(211, 204, 182, 0.952);
+            z-index: 100;
+            top: 0;
+            overflow: hidden;
+        }
+
+        .help-home {
+            display: flex;
+            gap: 25px;
+            margin-left: 20px;
+            margin-top: 30px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            transform: scale(1.2);
+            transition: transform 0.5s;
+
+        }
+
+        a {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .mid {
+            font-size: 25px;
+            color: #fff;
+            margin-top: 25px;
+        }
+
+        .mid:hover {
+            transform: rotate(360deg);
+            transition: transform 0.5s;
+        }
+
+        .midy {
+            font-style: italic;
+            color: red;
+            font-size: 15px;
+        }
+
+        .midy:hover {
+            transform: rotate(360deg);
+            transition: transform 0.5s;
+        }
+
+        .img-one {
+            width: 15px;
+            height: 15px;
+            margin-top: 30px;
+        }
+
+        .input1 {
+            margin-top: 35px;
+            height: 15px;
+            border: none;
+            border-radius: 5px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .input1:hover {
+            transform: scale(1.2);
+            transition: transform 0.5s;
+        }
+
+        button {
+            margin-right: 20px;
+        }
+
+        .check {
+            text-align: center;
+            width: 800px;
+            margin-top: 100px;
+        }
+
+        .hidden-text {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(1, 400px);
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            border: 1px solid #000;
+            gap: 30px;
+            position: relative;
+            text-align: center;
+            border-radius: 10px;
+            margin: 10px;
+            background-color: rgba(228, 147, 42, 0.966);
+            color: #fff;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            transition: transform 0.5s;
+        }
+
+        .genaral {
+            text-align: left;
+        }
+
+        .hidden-text {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 196, 0, 0.829);
+            opacity: 0;
+            border-radius: 10px;
+            font-style: inherit;
+            font-size: 17px;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: left;
+        }
+
+        .card:hover .hidden-text {
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .pic {
+            height: 15px;
+            width: 15px;
+            background-color: #fff;
+            border-radius: 100%;
+            margin-top: 35px;
+        }
+
+        .pic:hover {
+            transform: scale(1.2);
+            transition: transform 0.5s;
+        }
+
+        .added {
+            background-color: #fff;
+        }
+
+        .left-text {
+            display: flex;
+            gap: 10px;
+            margin-right: 10px;
+        }
+
+        @media screen and (min-width:600px) {
+            .cards {
+                grid-template-columns: repeat(2, 400px);
+
+            }
+
+            .card {
+                flex-direction: column;
+                padding-bottom: 20px;
+                align-items: stretch;
+            }
+
+            .card-img {
+                height: 300px;
+                width: auto;
+            }
+
+            .genaral {
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            .hidden-text {
+                font-size: 27px;
+                align-items: start;
+                padding-top: 40px;
+            }
+
+            .input1 {
+                margin-top: 35px;
+                height: 30px;
+                border: none;
+                border-radius: 5px;
+                width: 200px;
+                text-align: center;
+            }
+
+            .help-home {
+                display: flex;
+                gap: 70px;
+                margin-left: 40px;
+                margin-top: 40px;
+            }
+
+            .mid {
+                font-size: 35px;
+                color: #fff;
+                margin-top: 25px;
+            }
+
+            .img-one {
+                width: 25px;
+                height: 25px;
+                margin-top: 35px;
+            }
+
+            .pic {
+                height: 30px;
+                width: 28px;
+                background-color: #fff;
+                border-radius: 100%;
+                margin-top: 35px;
+            }
+
+            .midy {
+                font-style: italic;
+                color: red;
+                font-size: 25px;
+            }
+
+            .copy-rights {
+                margin-top: 200px;
+                width: 100%;
+                background-color: rgb(211, 204, 182);
+                height: 200px;
+            }
+        }
+
+
+        @media screen and (min-width:900px) {
+            .cards {
+                grid-template-columns: repeat(3, 400px);
+            }
+        }
+
+        .copy-rights {
+            margin-top: 200px;
+            width: 100%;
+            background-color: rgb(211, 204, 182);
+            height: 200px;
+        }
+
+        .copy-box {
+            display: flex;
+            padding-top: 150px;
+        }
+
+        .copy-img {
+            width: 15px;
+            height: 15px;
+        }
+
+        .li {
+            margin-left: 50px;
+        }
+
+        .man {
+            margin-left: 800px;
+            color: aqua;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="left-box">
+            <div class="help-home">
+                <a>
+                    Home
+                </a>
+                <a href="https://www.youtube.com/shorts/InaAKIjzXuE">
+                    Help
+                </a>
+            </div>
+        </div>
+        <div class="middle-box">
+            <div class="skandi-candi">
+                <h1 class="mid">
+                    SkandiCandi
+                </h1>
+                <h1 class="midy">
+                    buy it before it runs out
+                </h1>
+            </div>
+        </div>
+        <div class="right-box">
+            <div class="left-text">
+                <input type="text" class="input1" placeholder="search">
+                <div class="seach-b">
+                    <img src="https://static.thenounproject.com/png/2946467-200.png" class="pic">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="check">
+            <h1 class="check-out">
+                check out the list of delicios sweedish sweets and chocaltes you can buy below.
+            </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cards">
+            <div class="card">
+                <img class="card-img"
+                    src="https://www.worldofsweets.de/out/pictures/master/product/1/fazer-dumle-original-120g-no1-5129.jpg"
+                    alt="dumle">
+                <div class="genaral">
+                    <h1>Dumle</h1>
+                </div>
+                <h2 class="hidden-text">
+                    The combination of the chewy caramel and the velvety chocolate creates a perfect balance of flavors
+                    and textures. Dumle Original offers a satisfying and indulgent treat that is enjoyed by both
+                    children and adults. The creamy caramel provides a sweet and buttery taste, while the milk chocolate
+                    adds a luxurious touch.
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img"
+                    src="https://cdn.sweets.ch/wp-content/uploads/2022/02/daim-riegel-28g-no1-1627.jpg" alt="daim">
+                <div class="genaral">
+                    <h1>Daim</h1>
+                </div>
+                <h2 class="hidden-text">
+                    The Daim bar has a soft milk chocolate shell, which hides a hard caramel centre laced with almonds.
+                    It's hard enough that it can be snapped in half, and it crunches in your mouth before dissolving.
+                    It's got a buttery, milky, burnt sugar flavour to go with the toasted almond flakes. It's not bad at
+                    all.
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img added" src="https://i.ebayimg.com/images/g/bPIAAOSwkBtkSi57/s-l1200.png"
+                    alt="marabou">
+                <div class="genaral">
+                    <h1>Marabou</h1>
+                </div>
+                <h2 class="hidden-text">
+                    Milk Chocolate with Chopped Hazelnuts, Mint & Almond or Orange & Almond. Marabou has been the
+                    favourite chocolate brand in Sweden since it was launched in 1916.
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img"
+                    src="https://candymail.co.uk/cdn/shop/products/marabou-japp-sweden-60g-336286_1000x.jpg?v=1702955307"
+                    alt="japp">
+                <div class="genaral">
+                    <h1>japp</h1>
+                </div>
+                <h2 class="hidden-text">
+                    Japp consists of milk chocolate, filled with delicious cocoa meringue and soft caramel. It was
+                    launched in 1949 and is still a favorite among chocolate lovers.
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img added"
+                    src="https://stcloettaprd.blob.core.windows.net/wordpress-en-fi/2024/05/image-11462-scaled.webp"
+                    alt="polly">
+                <div class="genaral">
+                    <h1>polly</h1>
+                </div>
+                <h2 class="hidden-text">
+                    These delightfully chewy foam drops are flavoured with vanilla, arrack and butter toffee and coated
+                    in milk & dark chocolate. It's impossible to eat just one because of the incredible texture and
+                    flavers.
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img added"
+                    src="https://i.etsystatic.com/44625630/r/il/30d65a/5140306442/il_fullxfull.5140306442_7x63.jpg"
+                    alt="kex">
+                <div class="genaral">
+                    <h1>kex</h1>
+                </div>
+                <h2 class="hidden-text">
+                    KEX is the Swedish classic, which is eaten by 9 out of 10 Swedes. KEX is crispy waffle under a
+                    blanket of light milk chocolate. There's a broad selection of KEX sizes whether you'll have them for
+                    yourself or share with loved ones!
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img added"
+                    src="https://nordicexpatshop.com/media/catalog/product/cache/7d10f99bd9e850d2940843c910c1bfd9/c/l/cloetta_plopp.jpeg"
+                    alt="plopp">
+                <div class="genaral">
+                    <h1>plopp</h1>
+                </div>
+                <h2 class="hidden-text">
+                    Cloetta Plopp are delicious milk chocolates, with a caramel filling. This one is a favourite,
+                    chocolate treat amongst the Swede's. Originally introduced in 1949, Plopp is personified by the
+                    little mini bar that stands for nostalgia, fun and playfulness.
+                </h2>
+            </div>
+            <div class="card">
+                <img class="card-img added" src="https://m.media-amazon.com/images/I/41kEP0Ly8eL.jpg" alt="tutti">
+                <div class="genaral">
+                    <h1>tutti frutti</h1>
+                </div>
+                <h2 class="hidden-text">
+                    Tutti frutti (from Italian tutti i frutti, "all fruits"; also hyphenated tutti-frutti) is a colorful
+                    confectionery containing various chopped and usually candied fruits, or an artificial or natural
+                    flavouring simulating the combined flavour of many different fruits and vanilla.
+                </h2>
+            </div>
+        </div>
+        <div class="copy-rights">
+            <div class="copy-box">
+                <h2 class="li">
+                    Copy rights
+                </h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Copyright.svg/1200px-Copyright.svg.png"
+                    alt="copy-rights" class="copy-img">
+                <h2 class="li">
+                    production by Oliver
+                </h2>
+                <h3 class="man">
+                    if you dont buy your gay
+                </h3>
+            </div>
+        </div>
+</body>
+
+</html>
